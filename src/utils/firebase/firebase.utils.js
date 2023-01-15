@@ -74,13 +74,7 @@ export const getCategoriesAndDocuments = async () => {
     // Get Docs from DB
     const querySnapshot = await getDocs(q);
     // Reduce to desired Structure..
-    const categoryMap = querySnapshot.docs.reduce((acc, docSnap) => {
-        let { title, items } = docSnap.data();
-        title = title.toLowerCase();
-        acc[title] = items;
-        return acc;
-    }, {});
-    return categoryMap;
+    return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
 };
 
 // Save Authenticated User..

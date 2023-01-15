@@ -1,9 +1,10 @@
-// Import useContext from react..
-import { useContext } from "react";
+// Import useDispatch from react-redux..
+import { useDispatch } from "react-redux";
 
-// Import Button, CartContext..
+import { addItemsToCart } from "../../store/cart/cart.reducer";
+
+// Import Button..
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
-import { CartContext } from "../../contexts/cart.context";
 
 // Import SCSS..
 import {
@@ -17,10 +18,10 @@ import {
 const ProductCard = ({ product }) => {
   const { name, imageUrl, price } = product;
 
-  const { addItemsToCart } = useContext(CartContext);
+  const dispatch = useDispatch();
 
   // OnClick Helper Function to add Items to Cart..
-  const clickHandler = () => addItemsToCart(product);
+  const clickHandler = () => dispatch(addItemsToCart(product));
 
   return (
     <ProductCartContainer>

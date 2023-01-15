@@ -1,8 +1,9 @@
-// Import useContext..
-import { useContext } from "react";
+// Import useSelector, useDispatch..
+import { useSelector, useDispatch } from "react-redux";
 
-// Import CartContext..
-import { CartContext } from "../../contexts/cart.context";
+// Import Cart Selector..
+import { selectIsOpen, selectCartCount } from "../../store/cart/cart.selector.js"
+import { setIsOpen } from "../../store/cart/cart.reducer.js";
 
 // Import SCSS, SVG..
 import { ReactComponent as ShopBag } from "../../assets/shopping-bag.svg";
@@ -10,10 +11,12 @@ import { CartIconContainer, ItemCount } from "./cart-icon.styles.jsx";
 
 // Define CartIcon Component..
 const CartIcon = () => {
-  const { isOpen, setIsOpen, cartCount } = useContext(CartContext);
+  const dispatch = useDispatch();
+  const cartCount = useSelector(selectCartCount);
+  const isOpen = useSelector(selectIsOpen);
 
   // Create Toggler Function..
-  const cartToggle = () => setIsOpen(!isOpen);
+  const cartToggle = () => dispatch(setIsOpen(!isOpen));
 
   return (
     <CartIconContainer onClick={cartToggle} >
