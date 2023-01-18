@@ -10,12 +10,16 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
+    "@stripe/react-stripe-js": "^1.16.3",
+    "@stripe/stripe-js": "^1.46.0",
+    "dotenv": "^16.0.3",
     "firebase": "^9.15.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.6.1",
     "sass": "^1.57.1",
+    "stripe": "^11.6.0",
     "styled-components": "^5.3.6",
     "vite-plugin-svgr": "^2.4.0"
   },

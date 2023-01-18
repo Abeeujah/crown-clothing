@@ -3,6 +3,7 @@ import {
   BaseButton,
   GoogleSignInButton,
   InvertedButton,
+  ButtonSpinner
 } from "./button.styles";
 
 // Define Button Classes..
@@ -21,9 +22,9 @@ const getButton = (buttonType = BUTTON_TYPE_CLASSES.base) =>
   }[buttonType]);
 
 // Define Button Component..
-const Button = ({ children, buttonType, ...otherProps }) => {
+const Button = ({ children, buttonType, isLoading, ...otherProps }) => {
   const CustomButton = getButton(buttonType);
-  return <CustomButton {...otherProps}>{children}</CustomButton>;
+  return <CustomButton {...otherProps}>{isLoading ? <ButtonSpinner /> : children}</CustomButton>;
 };
 
 // Export Button Component..
